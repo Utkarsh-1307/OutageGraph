@@ -1,7 +1,8 @@
 # 📡 OutageGraph — Network Outage Impact Analyzer
 
-<!-- **Live demo:** https://<your-app>.streamlit.app -->
-<!-- ![Demo: failing the Mumbai core](docs/demo.gif) -->
+**▶ Live demo:** https://outagegraph-rxxa2amdtpqnuq3juscjgj.streamlit.app/
+
+![Demo: failing the Mumbai core, adding a backup link, failing a Bengaluru aggregation router](docs/demo.gif)
 
 Fail any router in an enterprise network and instantly see **which customers go down, how much monthly revenue is at risk, who survives on a backup path, and which devices are single points of failure**.
 

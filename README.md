@@ -1,4 +1,7 @@
-# 📡 Network Outage Impact Analyzer
+# 📡 OutageGraph — Network Outage Impact Analyzer
+
+<!-- **Live demo:** https://<your-app>.streamlit.app -->
+<!-- ![Demo: failing the Mumbai core](docs/demo.gif) -->
 
 Fail any router in an enterprise network and instantly see **which customers go down, how much monthly revenue is at risk, who survives on a backup path, and which devices are single points of failure**.
 
@@ -56,6 +59,8 @@ python -m src.load_data           # load the graph
 streamlit run app.py              # open http://localhost:8501
 ```
 On Windows you can simply run `run.bat` (or `run.bat load` to reload the data first).
+
+**Deploy:** on [Streamlit Community Cloud](https://share.streamlit.io), create an app from this repo (`app.py`) and add `NEO4J_URI`, `NEO4J_USER` and `NEO4J_PASSWORD` under *App settings → Secrets*. Credentials never go in the repo.
 
 ## Project structure
 ```

@@ -1,0 +1,80 @@
+{
+  "sites": [
+    {"id": "MUM", "city": "Mumbai", "region": "West"},
+    {"id": "PUN", "city": "Pune", "region": "West"},
+    {"id": "CHN", "city": "Chennai", "region": "South"},
+    {"id": "BLR", "city": "Bengaluru", "region": "South"},
+    {"id": "HYD", "city": "Hyderabad", "region": "South"},
+    {"id": "DEL", "city": "Delhi", "region": "North"},
+    {"id": "GGN", "city": "Gurugram", "region": "North"}
+  ],
+
+  "devices": [
+    {"id": "CORE-MUM", "name": "Mumbai Core", "type": "core", "site": "MUM"},
+    {"id": "CORE-CHN", "name": "Chennai Core", "type": "core", "site": "CHN"},
+
+    {"id": "AGG-MUM-1", "name": "Mumbai Aggregation 1", "type": "aggregation", "site": "MUM"},
+    {"id": "AGG-PUN-1", "name": "Pune Aggregation 1", "type": "aggregation", "site": "PUN"},
+    {"id": "AGG-BLR-1", "name": "Bengaluru Aggregation 1", "type": "aggregation", "site": "BLR"},
+    {"id": "AGG-BLR-2", "name": "Bengaluru Aggregation 2", "type": "aggregation", "site": "BLR"},
+    {"id": "AGG-HYD-1", "name": "Hyderabad Aggregation 1", "type": "aggregation", "site": "HYD"},
+    {"id": "AGG-DEL-1", "name": "Delhi Aggregation 1", "type": "aggregation", "site": "DEL"},
+
+    {"id": "EDGE-MUM-BKC", "name": "Mumbai BKC Edge", "type": "edge", "site": "MUM"},
+    {"id": "EDGE-MUM-AND", "name": "Mumbai Andheri Edge", "type": "edge", "site": "MUM"},
+    {"id": "EDGE-PUN-HJ", "name": "Pune Hinjewadi Edge", "type": "edge", "site": "PUN"},
+    {"id": "EDGE-BLR-WF", "name": "Bengaluru Whitefield Edge", "type": "edge", "site": "BLR"},
+    {"id": "EDGE-BLR-EC", "name": "Bengaluru Electronic City Edge", "type": "edge", "site": "BLR"},
+    {"id": "EDGE-HYD-HT", "name": "Hyderabad Hitec City Edge", "type": "edge", "site": "HYD"},
+    {"id": "EDGE-DEL-CP", "name": "Delhi Connaught Place Edge", "type": "edge", "site": "DEL"},
+    {"id": "EDGE-GGN-CC", "name": "Gurugram Cyber City Edge", "type": "edge", "site": "GGN"}
+  ],
+
+  "links": [
+    {"a": "CORE-MUM", "b": "CORE-CHN", "latency_ms": 18},
+    {"a": "CORE-MUM", "b": "AGG-MUM-1", "latency_ms": 2},
+    {"a": "CORE-MUM", "b": "AGG-PUN-1", "latency_ms": 5},
+    {"a": "CORE-MUM", "b": "AGG-DEL-1", "latency_ms": 22},
+    {"a": "CORE-MUM", "b": "AGG-BLR-2", "latency_ms": 16},
+    {"a": "CORE-CHN", "b": "AGG-BLR-1", "latency_ms": 6},
+    {"a": "CORE-CHN", "b": "AGG-HYD-1", "latency_ms": 9},
+    {"a": "AGG-BLR-1", "b": "AGG-BLR-2", "latency_ms": 1},
+    {"a": "AGG-MUM-1", "b": "AGG-PUN-1", "latency_ms": 4},
+    {"a": "AGG-HYD-1", "b": "AGG-BLR-1", "latency_ms": 8},
+
+    {"a": "EDGE-MUM-BKC", "b": "AGG-MUM-1", "latency_ms": 1},
+    {"a": "EDGE-MUM-AND", "b": "AGG-MUM-1", "latency_ms": 1},
+    {"a": "EDGE-MUM-AND", "b": "AGG-PUN-1", "latency_ms": 4},
+    {"a": "EDGE-PUN-HJ", "b": "AGG-PUN-1", "latency_ms": 1},
+    {"a": "EDGE-BLR-WF", "b": "AGG-BLR-1", "latency_ms": 1},
+    {"a": "EDGE-BLR-WF", "b": "AGG-BLR-2", "latency_ms": 2},
+    {"a": "EDGE-BLR-EC", "b": "AGG-BLR-1", "latency_ms": 1},
+    {"a": "EDGE-HYD-HT", "b": "AGG-HYD-1", "latency_ms": 1},
+    {"a": "EDGE-DEL-CP", "b": "AGG-DEL-1", "latency_ms": 1},
+    {"a": "EDGE-GGN-CC", "b": "AGG-DEL-1", "latency_ms": 2}
+  ],
+
+  "customers": [
+    {"id": "C01", "name": "Apex Bank", "industry": "BFSI", "tier": "Platinum", "services": [
+      {"id": "S01", "type": "MPLS VPN", "mrc_inr": 900000, "sla_pct": 99.99, "via": ["EDGE-MUM-BKC"]},
+      {"id": "S02", "type": "Internet Leased Line", "mrc_inr": 200000, "sla_pct": 99.9, "via": ["EDGE-MUM-AND"]}]},
+    {"id": "C02", "name": "Nimbus Retail", "industry": "Retail", "tier": "Gold", "services": [
+      {"id": "S03", "type": "SD-WAN", "mrc_inr": 350000, "sla_pct": 99.9, "via": ["EDGE-BLR-WF"]}]},
+    {"id": "C03", "name": "Vega Health", "industry": "Healthcare", "tier": "Platinum", "services": [
+      {"id": "S04", "type": "MPLS VPN", "mrc_inr": 600000, "sla_pct": 99.99, "via": ["EDGE-BLR-EC"]}]},
+    {"id": "C04", "name": "Orbit Logistics", "industry": "Logistics", "tier": "Silver", "services": [
+      {"id": "S05", "type": "Internet Leased Line", "mrc_inr": 150000, "sla_pct": 99.5, "via": ["EDGE-PUN-HJ"]}]},
+    {"id": "C05", "name": "Zenith Pharma", "industry": "Pharma", "tier": "Gold", "services": [
+      {"id": "S06", "type": "MPLS VPN", "mrc_inr": 450000, "sla_pct": 99.9, "via": ["EDGE-HYD-HT"]}]},
+    {"id": "C06", "name": "Kavach Insurance", "industry": "BFSI", "tier": "Platinum", "services": [
+      {"id": "S07", "type": "MPLS VPN", "mrc_inr": 800000, "sla_pct": 99.99, "via": ["EDGE-DEL-CP"]}]},
+    {"id": "C07", "name": "Pixel Media", "industry": "Media", "tier": "Silver", "services": [
+      {"id": "S08", "type": "Internet Leased Line", "mrc_inr": 120000, "sla_pct": 99.5, "via": ["EDGE-GGN-CC"]}]},
+    {"id": "C08", "name": "Saffron Foods", "industry": "FMCG", "tier": "Gold", "services": [
+      {"id": "S09", "type": "SD-WAN", "mrc_inr": 300000, "sla_pct": 99.9, "via": ["EDGE-BLR-WF", "EDGE-BLR-EC"]}]},
+    {"id": "C09", "name": "Quantum Edu", "industry": "Education", "tier": "Silver", "services": [
+      {"id": "S10", "type": "Internet Leased Line", "mrc_inr": 100000, "sla_pct": 99.5, "via": ["EDGE-MUM-AND"]}]},
+    {"id": "C10", "name": "Indus Motors", "industry": "Manufacturing", "tier": "Gold", "services": [
+      {"id": "S11", "type": "MPLS VPN", "mrc_inr": 500000, "sla_pct": 99.9, "via": ["EDGE-PUN-HJ", "EDGE-MUM-AND"]}]}
+  ]
+}
